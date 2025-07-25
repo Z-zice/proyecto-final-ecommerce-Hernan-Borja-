@@ -8,8 +8,8 @@ import *as model from "../models/products.model.js";
     return model.getProductById(id);
  }
 
- export const createProduct = ({name , price})=>{
-   return model.createProduct({name , price});
+ export const createProduct = ({name ,stock,descripcion,color,precie})=>{
+   return model.createProduct({name ,stock,descripcion,color,precie});
  }
  export const deleteProduct = (productId)=>{
    return model.deleteProduct(productId);
