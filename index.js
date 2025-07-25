@@ -7,9 +7,12 @@ import cors from "cors";
   app.use(cors());
   app.use(express.json());
 
-
+  import {auth} from "./src/middlewares/auth.middleware.js";
   import productsRouter from "./src/routes/products.router.js";
-  app.use("/api",productsRouter);
+  app.use("/api",auth,productsRouter);
+
+  import authRouter from "./src/routes/auth.routers.js";
+  app.use("/api",authRouter);
 
      app.use((req,res,next)=>{
     res.status(404).json({error: "Not Found"});
