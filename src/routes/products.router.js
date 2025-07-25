@@ -9,13 +9,13 @@ import {getAllProducts,
         ModifyProduct,
         deleteProduct,
 } from "../controllers/products.controller.js";
-
+import {auth} from "../middlewares/auth.middleware.js"
 router.get("/products",getAllProducts );
  
 
 router.get("/product/search",SearchProducts);
 
-router.get("/products/:id" ,getProductById);
+router.get("/products/:id",auth,getProductById);
 
 router.post("/products",createProduct);
 
